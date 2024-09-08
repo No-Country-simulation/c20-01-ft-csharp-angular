@@ -4,18 +4,18 @@ using WebApp.Models;
 namespace WebApp.Data
 {
 	public class AppDbContext : DbContext
-    {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options) { }
+	{
+		public AppDbContext(DbContextOptions<AppDbContext> options)
+			: base(options) { }
 
-        public DbSet<Users> Users { get; set; }
-        //public DbSet<Adoptions> Adoptions { get; set; }
-        public DbSet<Pets> Pets { get; set; }
-        //public DbSet<Reviews> Reviews { get; set; }
+		public DbSet<Users> Users { get; set; }
+		public DbSet<Adoptions> Adoptions { get; set; }
+		public DbSet<Pets> Pets { get; set; }
+		public DbSet<Reviews> Reviews { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-			/*
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			
 			// Pets Table Configuration
 			modelBuilder.Entity<Pets>()
                 .HasKey(p => p.PetId);
@@ -103,8 +103,7 @@ namespace WebApp.Data
 				.HasMany(a => a.Pets)
 				.WithOne(p => p.Adoption)
 				.HasForeignKey(p => p.AdoptionId)
-				.IsRequired();
-			*/
+				.OnDelete(DeleteBehavior.SetNull);
 		}
 	}
 }

@@ -10,24 +10,16 @@ namespace WebApp.Models
 {
 	public class Users
 	{
-		[Key]
-		[Required]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int UserId { get; set; }
-		[Required]
+		public string UserId { get; set; }
 		public string UserName { get; set; }
-		[Required]
 		public string UserPassword { get; set; }
-		[Required]
 		public string UserEmail { get; set; }
 		public DateTime Created { get; set; } = DateTime.UtcNow;
 
-		/*
 		// Navigation property for adoptions
 		public ICollection<Adoptions> Adoptions { get; set; }
 
-
 		// Navigation property for reviews
-		public ICollection<Reviews> Reviews { get; set; }*/
+		public ICollection<Reviews> Reviews { get; set; }
 	}
 }
