@@ -351,4 +351,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/s
 
-Backend/WebApp/Migrations/*
+Backend/WebApp/Migrations
+Frontend/WebApp/.vscode

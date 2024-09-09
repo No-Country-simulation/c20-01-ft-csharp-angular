@@ -18,12 +18,12 @@ namespace WebApp.Data
 			
 			// Pets Table Configuration
 			modelBuilder.Entity<Pets>()
-                .HasKey(p => p.PetId);
-            
+				.HasKey(p => p.PetId);
+			
 			modelBuilder.Entity<Pets>()
-                .Property(p => p.PetId)
-                .IsRequired()
-                .ValueGeneratedOnAdd();
+				.Property(p => p.PetId)
+				.IsRequired()
+				.ValueGeneratedOnAdd();
 
 			modelBuilder.Entity<Pets>()
 				.Property(p => p.PetName)
