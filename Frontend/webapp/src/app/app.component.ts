@@ -1,15 +1,33 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {
+  HttpClientModule,
+  HttpClient,
+  HttpErrorResponse,
+} from '@angular/common/http';
 import { RouterOutlet } from '@angular/router';
-import { UserComponent } from './user/user.component';
+import { PetService, Pet } from './services/pet.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, UserComponent],
+  imports: [CommonModule, RouterOutlet, HttpClientModule], // Importar HttpClientModule aquí
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'webapp';
+export class AppComponent implements OnInit {
+  pets: Pet[] = [];
+
+  constructor(private petService: PetService) {}
+
+  ngOnInit() {
+    this.petService.getPets().subscribe(
+      (data: Pet[]) => {
+        this.pets = data;
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error al obtener las mascotas:', error.message);
+      }
+    );
+  }
 }

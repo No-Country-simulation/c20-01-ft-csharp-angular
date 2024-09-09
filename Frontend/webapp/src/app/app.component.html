@@ -1,1 +1,14 @@
-<h1>hola mundo</h1>
+<div *ngIf="pets.length > 0; else noPets">
+  <h2>Lists to Pets Available</h2>
+  <ul>
+    <li *ngFor="let pet of pets">
+      <h3>{{ pet.petName }} ({{ pet.petSpecies }})</h3>
+      <p>Age: {{ pet.petAge }} Years</p>
+      <p>{{ pet.description }}</p>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noPets>
+  <p>Pets not found.</p>
+</ng-template>
