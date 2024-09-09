@@ -58,12 +58,20 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "ssl": true,
+            "sslKey": "path/to/your/ssl.key",
+            "sslCert": "path/to/your/ssl.crt"
+          },
           "configurations": {
             "production": {
               "buildTarget": "webapp:build:production"
             },
             "development": {
-              "buildTarget": "webapp:build:development"
+              "buildTarget": "webapp:build:development",
+              "ssl": true,
+              "sslKey": "path/to/your/ssl.key",
+              "sslCert": "path/to/your/ssl.crt"
             }
           },
           "defaultConfiguration": "development"
