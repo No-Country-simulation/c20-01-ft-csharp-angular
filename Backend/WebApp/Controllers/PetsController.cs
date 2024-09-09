@@ -31,6 +31,7 @@ namespace WebApp.Controllers
 				PetAge = pets.PetAge,
 				Description = pets.Description
 			}).ToList();
+
 			return Ok(petsDTO);
 		}
 
