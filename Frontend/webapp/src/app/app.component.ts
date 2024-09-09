@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import {
-  HttpClientModule,
-  HttpClient,
-  HttpErrorResponse,
-} from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { RouterOutlet } from '@angular/router';
 import { PetService, Pet } from './services/pet.service';
 
