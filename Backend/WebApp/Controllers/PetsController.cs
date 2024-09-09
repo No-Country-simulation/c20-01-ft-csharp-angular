@@ -7,8 +7,8 @@ using WebApp.Models;
 
 namespace WebApp.Controllers
 {
-	[Route("api/pets")]
 	[ApiController]
+	[Route("api/pets")]
 	public class PetsController : ControllerBase
 	{
 		private readonly AppDbContext _context;
@@ -36,13 +36,13 @@ namespace WebApp.Controllers
 
 		//GET /api/pets/{id}
 		[HttpGet("{id}")]
-		public async Task<ActionResult<IdPetResponseDTO>> GetPetById(string id)
+		public async Task<ActionResult<IdPetDTO>> GetPetById(string id)
 		{
 			var pet = await _context.Pets.FindAsync(id);
 			if (pet == null)
 				return NotFound();
 
-			var idPetDTO = new IdPetResponseDTO()
+			var idPetDTO = new IdPetDTO()
 			{
 				PetId = pet.PetId,
 				PetName = pet.PetName,
@@ -50,30 +50,28 @@ namespace WebApp.Controllers
 				PetAge = pet.PetAge,
 				Description = pet.Description
 			};
+
 			return Ok(idPetDTO);
 		}
 
 		//POST /api/pets
 		[HttpPost]
-		public async Task<ActionResult<PetsResponseTDO>> RegisterPets([FromBody] PetsResponseTDO registerPetsDTO)
+		public async Task<ActionResult<PetsTDO>> RegisterPets([FromBody] PetsTDO registerPets)
 		{
-			// Create a new Pet entity from the DTO
 			var pet = new Pets
 			{
 				PetId = Guid.NewGuid().ToString(),
-				PetName = registerPetsDTO.PetName,
-				PetSpecies = registerPetsDTO.PetSpecies,
-				PetAge = registerPetsDTO.PetAge,
-				Description = registerPetsDTO.Description,
+				PetName = registerPets.PetName,
+				PetSpecies = registerPets.PetSpecies,
+				PetAge = registerPets.PetAge,
+				Description = registerPets.Description,
 				Created = DateTime.UtcNow
 			};
 
-			// Add the new pet to the database context
 			_context.Pets.Add(pet);
 			await _context.SaveChangesAsync();
 
-			// Create a DTO to return in the response
-			var response = new PetsResponseTDO
+			var response = new PetsTDO
 			{
 				PetId = pet.PetId,
 				PetName = pet.PetName,
@@ -83,24 +81,24 @@ namespace WebApp.Controllers
 				Created = pet.Created
 			};
 
-			// Return the created pet with 201 Created status
 			return CreatedAtAction(nameof(RegisterPets), new { id = response.PetId }, response);
 		}
 
-		//PUT /api/pets/{id}:
+		//PUT /api/pets/{id}
+		
 
 		//DELETE /api/pets/{id}
 		[HttpDelete("{id}")]
 		public async Task<ActionResult> DeletePet(string id)
 		{
 			var pet = await _context.Pets.FindAsync(id);
-            if (pet == null)
-                return NotFound();
+			if (pet == null)
+				return NotFound();
 
-            _context.Pets.Remove(pet);
-            await _context.SaveChangesAsync();
+			_context.Pets.Remove(pet);
+			await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+			return NoContent();
+		}
 	}
 }

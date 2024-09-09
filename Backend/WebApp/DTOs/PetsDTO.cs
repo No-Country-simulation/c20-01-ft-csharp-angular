@@ -1,6 +1,6 @@
 ﻿namespace WebApp.DTOs
 {
-    public class PetsResponseTDO
+    public class PetsTDO
     {
 		public string PetId { get; set; }
 		public string PetName { get; set; }
