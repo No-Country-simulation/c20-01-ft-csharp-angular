@@ -7,7 +7,7 @@ using WebApp.Models;
 
 namespace WebApp.Controllers
 {
-    [Route("api/pets")]
+	[Route("api/pets")]
 	[ApiController]
 	public class PetsController : ControllerBase
 	{
@@ -18,9 +18,9 @@ namespace WebApp.Controllers
 			_context = context;
 		}
 
-		// GET api/pets/all
-		[HttpGet("all")]
-		public async Task<ActionResult<ListPetsDTO>> GetPet()
+		// GET api/pets
+		[HttpGet]
+		public async Task<ActionResult<ListPetsDTO>> GetPets()
 		{
 			var pets = await _context.Pets.ToListAsync();
 			var petsDTO = pets.Select(pets => new ListPetsDTO()
@@ -34,8 +34,27 @@ namespace WebApp.Controllers
 			return Ok(petsDTO);
 		}
 
-		// POST api/pets/register
-		[HttpPost("register")]
+		//GET /api/pets/{id}
+		[HttpGet("{id}")]
+		public async Task<ActionResult<IdPetResponseDTO>> GetPetById(string id)
+		{
+			var pet = await _context.Pets.FindAsync(id);
+			if (pet == null)
+				return NotFound();
+
+			var idPetDTO = new IdPetResponseDTO()
+			{
+				PetId = pet.PetId,
+				PetName = pet.PetName,
+				PetSpecies = pet.PetSpecies,
+				PetAge = pet.PetAge,
+				Description = pet.Description
+			};
+			return Ok(idPetDTO);
+		}
+
+		//POST /api/pets
+		[HttpPost]
 		public async Task<ActionResult<PetsResponseTDO>> RegisterPets([FromBody] PetsResponseTDO registerPetsDTO)
 		{
 			// Create a new Pet entity from the DTO
@@ -46,7 +65,7 @@ namespace WebApp.Controllers
 				PetSpecies = registerPetsDTO.PetSpecies,
 				PetAge = registerPetsDTO.PetAge,
 				Description = registerPetsDTO.Description,
-				Created = DateTime.UtcNow  // Set creation time to current UTC
+				Created = DateTime.UtcNow
 			};
 
 			// Add the new pet to the database context
@@ -68,5 +87,20 @@ namespace WebApp.Controllers
 			return CreatedAtAction(nameof(RegisterPets), new { id = response.PetId }, response);
 		}
 
+		//PUT /api/pets/{id}:
+
+		//DELETE /api/pets/{id}
+		[HttpDelete("{id}")]
+		public async Task<ActionResult> DeletePet(string id)
+		{
+			var pet = await _context.Pets.FindAsync(id);
+            if (pet == null)
+                return NotFound();
+
+            _context.Pets.Remove(pet);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
 	}
 }
