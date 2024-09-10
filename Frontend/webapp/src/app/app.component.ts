@@ -1,24 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { PetsService } from './pets.service';
-import { Pet } from './pet.model'; // Define el modelo según tu estructura
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    /* otros módulos */
-  ],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
-  pets: Pet[] = [];
-
-  constructor(private petsService: PetsService) {}
-
-  ngOnInit() {
-    this.petsService.getPets().subscribe((data) => {
-      this.pets = data;
-    });
-  }
+export class AppComponent {
+  title = 'webapp';
 }
