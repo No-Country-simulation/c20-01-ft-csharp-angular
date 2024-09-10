@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './pet-detail.component.html',
-  styleUrl: './pet-detail.component.scss'
+  styleUrl: './pet-detail.component.css'
 })
 export class PetDetailComponent {
 
