@@ -1,12 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+export interface Pet {
+  petId: string;
+  petName: string;
+  petSpecies: string;
+  petAge: number;
+  description: string;
+  created: Date;
 
-
-
-@NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
-})
-export class PetModule { }
+  adoptionId?: string;
+}

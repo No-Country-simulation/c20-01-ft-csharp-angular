@@ -1,12 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+export interface Adoption {
+  adoptionId: string;
+  adoptionDate: Date;
+  adoptionStatus: string;
 
-
-
-@NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
-})
-export class AdoptionModule { }
+  userId?: string;
+  petIds?: string[];
+}
