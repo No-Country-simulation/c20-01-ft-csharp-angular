@@ -1,1 +1,48 @@
-<p>navbar works!</p>
+<nav class="flex justify-between items-center p-4 bg-white shadow-md">
+  <!-- Logo -->
+  <div class="text-2xl font-bold">
+    <a href="/"
+      >Fundación <br /><span class="text-black"
+        >Adopta <span class="italic">no compres</span></span
+      ></a
+    >
+  </div>
+
+  <!-- Menu for large screens -->
+  <div class="hidden md:flex space-x-4">
+    <a href="#" class="hover:underline">Nosotros</a>
+    <a href="#" class="hover:underline">Adopta</a>
+    <a href="#" class="hover:underline">Dudas</a>
+    <a href="#" class="hover:underline">Tienda</a>
+    <a href="#" class="hover:underline">Contacto</a>
+    <a href="#" class="hover:underline">Dona</a>
+    <a href="#" class="hover:underline">My Account</a>
+    <a href="#" class="hover:underline"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+
+  <!-- Hamburger icon for small screens -->
+  <div class="md:hidden flex items-center">
+    <button class="focus:outline-none">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu (hidden by default, shown when hamburger is clicked) -->
+<div class="hidden flex-col md:hidden space-y-2 mt-2">
+  <a href="#" class="block hover:underline">Nosotros</a>
+  <a href="#" class="block hover:underline">Adopta</a>
+  <a href="#" class="block hover:underline">Dudas</a>
+  <a href="#" class="block hover:underline">Tienda</a>
+  <a href="#" class="block hover:underline">Contacto</a>
+  <a href="#" class="block hover:underline">Dona</a>
+  <a href="#" class="block hover:underline">My Account</a>
+  <a href="#" class="block hover:underline"
+    ><i class="fas fa-shopping-cart"></i
+  ></a>
+</div>
+
+<!-- Mobile menu (shown when hamburger is clicked) -->
+<div [class.hidden]="!isMenuOpen" class="flex-col md:hidden space-y-2 mt-2">
+  <!-- Enlaces móviles -->
+</div>
