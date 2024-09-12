@@ -19,7 +19,7 @@ export const routes: Routes = [
         component: PetDetailComponent,
       },
       /*
-      -- Create UserComponent --
+      -- Create UserComponent Firts--
       {
       // crear nueva mascota (admin)
         path: 'new',
@@ -27,7 +27,7 @@ export const routes: Routes = [
       },
       {
       // editar datos mascota (admin)
-        path: 'edith/:id',
+        path: 'edit/:id',
         component: UserComponent,
       }
        */
