@@ -3,6 +3,18 @@ using WebApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configurar CORS para permitir que Angular acceda al backend
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowAngularApp",
+		policy =>
+		{
+			policy.WithOrigins("http://localhost:4200") // La URL de tu aplicación Angular
+				  .AllowAnyHeader()
+				  .AllowAnyMethod();
+		});
+});
+
 // Add services to the container.
 builder.Services.AddControllers();
 
@@ -14,6 +26,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
+
+// Usar CORS
+app.UseCors("AllowAngularApp");
+
 /*
 using (var scope = app.Services.CreateScope() )
 {
