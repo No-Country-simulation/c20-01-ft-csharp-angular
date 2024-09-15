@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, Input, input } from '@angular/core';
 import { Pet } from '../../interfaces';
 import { PetService } from '../../services/pets/pet.service';
 
@@ -10,7 +10,7 @@ import { PetService } from '../../services/pets/pet.service';
   styleUrl: './pet-card.component.css',
 })
 export class PetCardComponent {
-  pet = input<Pet>();
+  @Input() pet!: Pet;
 
   private _petsService = inject(PetService);
 }

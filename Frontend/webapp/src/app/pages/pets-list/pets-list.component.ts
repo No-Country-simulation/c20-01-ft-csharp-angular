@@ -9,12 +9,13 @@ import { PetCardComponent } from '../../shared/pet-card/pet-card.component';
 import { RouterModule } from '@angular/router';
 import { PetService } from '../../services/pets/pet.service';
 import { Pet } from '../../interfaces';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [PetCardComponent, RouterModule],
+  imports: [CommonModule, PetCardComponent, RouterModule],
   templateUrl: './pets-list.component.html',
-  styleUrl: './pets-list.component.css',
+  styleUrls: ['./pets-list.component.css'],
 })
 export class PetsListComponent implements OnInit {
   ngOnInit() {
@@ -27,14 +28,19 @@ export class PetsListComponent implements OnInit {
   getPets() {
     this._petsService.getPets().subscribe(
       (response) => {
-        if (response.isSuccess) {
-          this.pets.set(response.data);
-          console.log('Pets fetched successfully:', response.data);
+        if (Array.isArray(response)) {
+          this.pets.set(response);
+        } else {
+          console.error('Unexpected response format:', response);
         }
       },
       (error) => {
         console.error('Error fetching pets', error);
       }
     );
+  }
+
+  trackByPetId(index: number, pet: Pet): string {
+    return pet.petId;
   }
 }

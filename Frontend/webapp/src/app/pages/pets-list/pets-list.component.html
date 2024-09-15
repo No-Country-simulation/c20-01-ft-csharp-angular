@@ -1,2 +1,4 @@
 <h2>Pets list</h2>
-<app-pet-card></app-pet-card>
+<div *ngFor="let pet of pets(); trackBy: trackByPetId">
+  <app-pet-card [pet]="pet"></app-pet-card>
+</div>

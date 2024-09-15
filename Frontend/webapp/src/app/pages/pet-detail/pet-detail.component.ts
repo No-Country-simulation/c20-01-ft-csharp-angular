@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './pet-detail.component.html',
-  styleUrl: './pet-detail.component.css'
+  styleUrl: './pet-detail.component.css',
 })
-export class PetDetailComponent {
-
-}
+export class PetDetailComponent {}
