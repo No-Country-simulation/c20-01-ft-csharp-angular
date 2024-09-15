@@ -1,4 +1,6 @@
-<h2>Pets list</h2>
-<div *ngFor="let pet of pets(); trackBy: trackByPetId">
-  <app-pet-card [pet]="pet"></app-pet-card>
+<div class="container">
+  <app-pet-card
+    *ngFor="let pet of pets(); trackBy: trackByPetId"
+    [pet]="pet"
+  ></app-pet-card>
 </div>
