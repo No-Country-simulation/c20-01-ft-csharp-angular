@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { PetsListComponent } from './pages/pets-list/pets-list.component';
 import { PetDetailComponent } from './pages/pet-detail/pet-detail.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 export const routes: Routes = [
   {
@@ -10,7 +11,7 @@ export const routes: Routes = [
     children: [
       {
         // Adopta una mascota
-        path: 'home',
+        path: 'pets',
         component: PetsListComponent,
       },
       {

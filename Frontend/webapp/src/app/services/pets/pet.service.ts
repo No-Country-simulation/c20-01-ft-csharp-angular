@@ -14,12 +14,12 @@ import {
   providedIn: 'root',
 })
 export class PetService {
-  private _baseUrl = 'http://localhost:5198';
+  private _baseUrl = 'http://localhost:5198/api/';
   private http = inject(HttpClient);
   constructor() {}
 
   getPets(): Observable<PetsResponce> {
-    return this.http.get<PetsResponce>(`${this._baseUrl}api/pets`);
+    return this.http.get<PetsResponce>(`${this._baseUrl}pets`);
   }
 
   getPet(id: string): Observable<PetResponce> {
