@@ -2,13 +2,16 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { PetsListComponent } from './pages/pets-list/pets-list.component';
 import { PetDetailComponent } from './pages/pet-detail/pet-detail.component';
-import { FooterComponent } from './shared/footer/footer.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: HomeComponent, // Main Page
     children: [
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
       {
         // Adopta una mascota
         path: 'pets',
@@ -37,6 +40,5 @@ export const routes: Routes = [
   {
     path: '**', // If not found redirect to Home
     redirectTo: 'home',
-    pathMatch: 'full', // Match the whole URL path
   },
 ];

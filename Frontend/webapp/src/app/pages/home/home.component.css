@@ -1,0 +1,56 @@
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #fef6e4;
+}
+
+.welcome-text {
+  max-width: 50%;
+}
+
+.welcome-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #6eb9a8;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.featured-pets {
+  padding: 50px;
+  text-align: center;
+}
+
+.pet-grid {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pet-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+}
+
+.pet-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.mission {
+  padding: 50px;
+  background-color: #fff7f0;
+  text-align: center;
+}
