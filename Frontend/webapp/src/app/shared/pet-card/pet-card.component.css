@@ -5,7 +5,7 @@
 }
 
 .card {
-  height: 200px;
+  height: 300px;
   margin: 20px;
   box-shadow: 1px 1px 5px black;
   overflow: hidden;
@@ -14,14 +14,14 @@
 }
 
 img {
-  height: 200px;
-  width: 150px;
+  height: 300px;
+  width: 200px;
   border-radius: 7px;
   transition: transform 0.5s ease;
 }
 
 .intro {
-  height: 20%;
+  height: 15%;
   width: 100%;
   padding: 1%;
   box-sizing: border-box;
@@ -33,13 +33,13 @@ img {
 }
 
 h1 {
-  font-size: 130%;
+  font-size: 150%;
   margin-left: 5%;
   margin-top: 3%;
 }
 
 p {
-  font-size: 70%;
+  font-size: 85%;
   margin: 5%;
   visibility: hidden;
   opacity: 0;
@@ -55,7 +55,7 @@ span {
 }
 
 .card:hover .intro {
-  height: 40%;
+  height: 35%;
   bottom: 0;
   background: black;
 }
