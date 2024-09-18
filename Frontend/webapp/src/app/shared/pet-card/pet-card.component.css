@@ -1,0 +1,70 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
+.card {
+  height: 300px;
+  margin: 20px;
+  box-shadow: 1px 1px 5px black;
+  overflow: hidden;
+  position: relative;
+  border-radius: 7px;
+}
+
+img {
+  height: 300px;
+  width: 200px;
+  border-radius: 7px;
+  transition: transform 0.5s ease;
+}
+
+.intro {
+  height: 15%;
+  width: 100%;
+  padding: 1%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  background: rgba(27, 27, 27, 0.5); /* Corrección del valor de transparencia */
+  color: white;
+  transition: all 0.5s ease;
+}
+
+h1 {
+  font-size: 150%;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+p {
+  font-size: 85%;
+  margin: 5%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+span {
+  font-weight: bold;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card:hover .intro {
+  height: 35%;
+  bottom: 0;
+  background: black;
+}
+
+.card:hover p {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
