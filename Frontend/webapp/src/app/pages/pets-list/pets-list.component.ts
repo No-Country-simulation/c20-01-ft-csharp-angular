@@ -31,6 +31,7 @@ export class PetsListComponent implements OnInit {
         if (Array.isArray(response)) {
           this.pets.set(response);
         } else {
+          console.log(response);
           console.error('Unexpected response format:', response);
         }
       },
