@@ -1,5 +1,8 @@
-<h1 style="text-align: center;">PawsHappy</h1>
-    <p style="text-align: center;">Plataforma de Adopción de Mascotas</p>
+<!-- Header Section -->
+<div align='center'>
+    <h1>PawsHappy</h1>
+    <h3>Plataforma de Adopción de Mascotas</h3>
+</div>
 
 <h2>Descripción del Proyecto</h2>
     <p>PawsHappy es una plataforma diseñada para facilitar la adopción de mascotas. Ofrecemos una interfaz intuitiva donde los usuarios pueden explorar diferentes mascotas que están en adopción, ver detalles y postularse para darles un hogar. Además, el sistema permite a las organizaciones gestionar las adopciones y mantener actualizada la información de las mascotas disponibles.</p>
